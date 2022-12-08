@@ -14,6 +14,7 @@ import {
   StoryController,
   UserController,
 } from '@controllers';
+import { AppService } from '@services';
 
 @Module({
   imports: [
@@ -31,5 +32,6 @@ import {
     StoryController,
     UserController,
   ],
+  providers: [AppService],
 })
 export class AppModule {}
