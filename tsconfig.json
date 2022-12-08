@@ -5,6 +5,7 @@
       "@configuration": ["src/configuration"],
       "@controllers": ["src/controllers"],
       "@core/*": ["src/core/*"],
+      "@errors": ["src/errors"],
       "@exceptions": ["src/exceptions"],
       "@guards": ["src/guards"],
       "@services": ["src/services"],
