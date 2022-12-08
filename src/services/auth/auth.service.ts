@@ -3,14 +3,14 @@ import { ConfigService } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
 import { WrongCredentialsException, ServerException } from '@exceptions';
-import { UserService } from '@services';
+import { UserService } from '../user/user.service';
 import { UserTokenPayload } from '@core/interfaces';
 
 @Injectable()
 export class AuthService {
   constructor(
-    private readonly configService: ConfigService,
     private readonly userService: UserService,
+    private readonly configService: ConfigService,
     private readonly jwtService: JwtService,
   ) {}
 
