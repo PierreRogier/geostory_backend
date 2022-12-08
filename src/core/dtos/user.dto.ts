@@ -19,6 +19,10 @@ export class CreateUserDto {
   @IsNotEmpty()
   lastname: string;
 
+  @IsString()
+  @IsNotEmpty()
+  userRole: string;
+
   district: District;
 }
 
