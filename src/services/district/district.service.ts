@@ -6,6 +6,7 @@ import {
   CreateDistrictDto,
   UpdateDistrictDto,
   CreateUserDto,
+  CreateStoryDto,
 } from '@core/dtos';
 import { UserRoles } from '@core/enums';
 import {
@@ -15,6 +16,7 @@ import {
 } from '@exceptions';
 import { PostgresErrorsCode } from '@errors';
 import { UserService } from '../user/user.service';
+import { StoryService } from '../story/story.service';
 
 @Injectable()
 export class DistrictService {
@@ -22,6 +24,7 @@ export class DistrictService {
     @InjectRepository(District)
     private districtRepository: Repository<District>,
     private readonly userService: UserService,
+    private readonly storyService: StoryService,
   ) {}
 
   // District
@@ -85,5 +88,21 @@ export class DistrictService {
       district,
     });
     return newUser;
+  }
+
+  // Story
+  async createStoryInDistrict(
+    districtId: number,
+    userId: number,
+    createStoryDto: CreateStoryDto,
+  ) {
+    const district = await this.findDistrictById(districtId);
+    const user = await this.userService.findUserById(userId);
+    const newStory = await this.storyService.createStory({
+      ...createStoryDto,
+      author: user,
+      district,
+    });
+    return newStory;
   }
 }

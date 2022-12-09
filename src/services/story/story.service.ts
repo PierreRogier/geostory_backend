@@ -15,6 +15,7 @@ export class StoryService {
   constructor(
     @InjectRepository(Story) private storyRepository: Repository<Story>,
   ) {}
+  
   async createStory(createStoryDto: CreateStoryDto) {
     const newStory = await this.storyRepository.create(createStoryDto);
     try {
