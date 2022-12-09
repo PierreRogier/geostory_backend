@@ -47,7 +47,6 @@ export class DistrictController {
     return this.districtService.updateDistrict(+districtId, updateDistrictDto);
   }
 
-  @UseGuards(UserJwtAuthGuard)
   @Delete(':districtId')
   removeDistrict(@Param('districtId') districtId: string) {
     return this.districtService.removeDistrict(+districtId);

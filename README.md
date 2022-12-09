@@ -35,3 +35,7 @@ $ yarn test:e2e
 # test coverage
 $ yarn test:cov
 ```
+
+## Documentation
+
+- npx @compodoc/compodoc -p tsconfig.json -s -r 5500
